@@ -6,8 +6,8 @@ const Contato = (props) => {
         <TouchableOpacity
             // onLongPress={props.onDelete.bind(this, props.chave)}
             onPress={props.onSelect.bind(this, props.nome, props.telefone)}
-            style={styles.lugarItem}>
-                <Image style={styles.imagem} source={{ uri: props.imagem }} />
+            style={styles.contatoItem}>
+                <Image style={styles.imagem} source={{ uri: props.imagemURI }} />
                 <View style={styles.contatoNaLista}>
                     <Text style={styles.nome}>{props.nome}</Text>
                 </View>
@@ -16,7 +16,7 @@ const Contato = (props) => {
 }
 
 const styles = StyleSheet.create({
-    lugarItem: {
+    contatoItem: {
         borderBottomColor: '#ccc',
         borderBottomWidth: 1,
         paddingVertical: 15,

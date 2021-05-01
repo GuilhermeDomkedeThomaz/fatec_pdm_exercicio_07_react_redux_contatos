@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet, View, FlatList, Platform } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import BotaoCabecalho from '../components/BotaoCabecalho';
 import Contato from '../components/Contato';
+import * as contatoActions from '../store/ContatoActions';
 
 const TelaContato = (props) => {
     const contatos = useSelector(estado => estado.contatos.contatos);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(contatoActions.listarContatos())
+    }, [dispatch]);
 
     const verContato = (nomeContato, telefoneContato) => {
         alert("Nome: " + nomeContato + "\nTelefone: " + telefoneContato);
@@ -32,6 +38,7 @@ const TelaContato = (props) => {
                     <Contato
                         nome={contato.item.nome}
                         telefone={contato.item.telefone}
+                        imagem={contato.item.imagemURI}
                         onSelect={verContato}
                         // onDelete={removerContato}
                     />

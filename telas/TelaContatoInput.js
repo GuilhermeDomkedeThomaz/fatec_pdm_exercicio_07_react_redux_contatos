@@ -10,7 +10,7 @@ const TelaContatoInput = (props) => {
     const [imagemURI, setImagemURI] = useState();
 
     const adicionarContato = (nome, telefone) => {
-        dispatch(contatoActions.addContato(nome, telefone));
+        dispatch(contatoActions.addContato(nome, telefone, imagemURI));
         props.navigation.goBack();
     }
 
