@@ -5,7 +5,7 @@ const Contato = (props) => {
     return (
         <TouchableOpacity
             // onLongPress={props.onDelete.bind(this, props.chave)}
-            onPress={props.onSelect.bind(this, props.nome, props.telefone)}
+            onPress={props.onSelect.bind(this, props.nome, props.telefone, props.lat, props.lng)}
             style={styles.contatoItem}>
                 <Image style={styles.imagem} source={{ uri: props.imagemURI }} />
                 <View style={styles.contatoNaLista}>

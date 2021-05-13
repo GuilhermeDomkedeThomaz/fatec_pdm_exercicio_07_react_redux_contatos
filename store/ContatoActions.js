@@ -11,7 +11,7 @@ import { inserirContato, buscarContatos } from '../helpers/db';
 //     }
 // }
 
-export const addContato = (nome, telefone, imagemURI) => {
+export const addContato = (nome, telefone, imagemURI, lat, lng) => {
     return async dispatch => {
         const nomeArquivo = imagemURI.split("/").pop();
         const novoPath = FileSystem.documentDirectory + nomeArquivo;
@@ -32,7 +32,9 @@ export const addContato = (nome, telefone, imagemURI) => {
                     id: resultadoDB.insertId,
                     nome: nome,
                     telefone: telefone,
-                    imagemURI: novoPath
+                    imagemURI: novoPath,
+                    lat: lat,
+                    lng: lng
                 }
             })
         } catch (err) {

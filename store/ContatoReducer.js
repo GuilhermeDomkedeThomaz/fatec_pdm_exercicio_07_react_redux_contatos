@@ -12,7 +12,9 @@ export default (estado = estadoInicial, action) => {
                 action.dadosContato.id.toString(),
                 action.dadosContato.nome,
                 action.dadosContato.telefone,
-                action.dadosContato.imagemURI
+                action.dadosContato.imagemURI,
+                action.dadosContato.lat,
+                action.dadosContato.lng
             )
             return {
                 contatos: estado.contatos.concat(contato)
@@ -20,7 +22,7 @@ export default (estado = estadoInicial, action) => {
         
         case contatoActions.LISTA_CONTATOS:
             return {
-                contatos: action.contatos.map(c => new Contato(c.id.toString(), c.nome, c.telefone, c.imagemURI))
+                contatos: action.contatos.map(c => new Contato(c.id.toString(), c.nome, c.telefone, c.imagemURI, c.lat, c.lng))
             }
         
         default:

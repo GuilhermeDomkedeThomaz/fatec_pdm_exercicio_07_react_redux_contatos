@@ -14,8 +14,8 @@ const TelaContato = (props) => {
         dispatch(contatoActions.listarContatos())
     }, [dispatch]);
 
-    const verContato = (nomeContato, telefoneContato) => {
-        alert("Nome: " + nomeContato + "\nTelefone: " + telefoneContato);
+    const verContato = (nomeContato, telefoneContato, lat, lng) => {
+        alert("Nome: " + nomeContato + "\nTelefone: " + telefoneContato + "\nLatitude: " + lat + "\nLongitude: " + lng);
     }
 
     // const removerContato = (contatoKey) => {
@@ -39,6 +39,8 @@ const TelaContato = (props) => {
                         nome={contato.item.nome}
                         telefone={contato.item.telefone}
                         imagem={contato.item.imagemURI}
+                        lat={contato.item.lat}
+                        lng={contato.item.lng}
                         onSelect={verContato}
                         // onDelete={removerContato}
                     />

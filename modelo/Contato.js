@@ -4,6 +4,8 @@ class Contato {
         this.nome = nome;
         this.telefone = telefone;
         this.imagemURI = imagemURI;
+        this.lat = lat;
+        this.lng = lng;
     }
 }
 
